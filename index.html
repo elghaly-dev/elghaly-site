@@ -559,7 +559,46 @@ html[lang="zh-Hans"] .team__title { font-family: inherit; font-style: normal; fo
   .tile { transition: none; }
   .tile:hover { transform: none; }
 }
-  </style>
+  
+/* Road of stations */
+.pill{display:inline-block;margin:4px 0 2px;padding:2px 10px;border-radius:999px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(196,161,236,.45);color:var(--gold-soft);background:rgba(196,161,236,.10)}
+.txt h3{display:block}.pill{display:table}
+.p-on{border-color:rgba(52,184,172,.6);color:#bdf3ec;background:rgba(52,184,172,.12)}
+.p-os{border-color:rgba(42,76,179,.8);color:#cfdbff;background:rgba(42,76,179,.22)}
+.p-pv{border-color:rgba(230,212,250,.5)}
+.p-soon{opacity:.75;border-style:dashed}
+.go--gh{margin:2px 0 2px 4px}
+
+.intro{margin:20px auto 0;max-width:34ch;text-align:center;color:var(--ivory);font-size:1rem;line-height:1.5}
+.road{position:relative;margin:30px auto 0;max-width:560px;padding:10px 0 20px}
+.road__t{text-align:center;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:400;color:var(--gold);font-size:clamp(1.3rem,5.5vw,1.7rem);margin:0 0 6px}
+.road .road__svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.road path{fill:none;stroke-linecap:round}
+.bed{stroke:rgba(196,161,236,.16);stroke-width:10}
+.line{stroke:#d9c6f7;stroke-width:3;filter:drop-shadow(0 0 6px #b794ef) drop-shadow(0 0 14px rgba(159,127,209,.8))}
+.stops{list-style:none;margin:0;padding:30px 0 10px;position:relative}
+.st{position:relative;margin:0 0 54px;display:flex}
+.st.L{justify-content:flex-end;padding-left:14%}
+.st.R{justify-content:flex-start;padding-right:14%}
+.node{position:absolute;top:34px;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:#1a1430;border:2px solid var(--gold);transition:.7s}
+.st.L .node{left:0%;transform:translateX(14px)}
+.st.R .node{right:0%;transform:translateX(-14px)}
+.st.on .node{background:var(--gold-soft);box-shadow:0 0 0 5px rgba(196,161,236,.18),0 0 22px 8px rgba(185,148,239,.75)}
+.card{width:100%;background:linear-gradient(160deg,rgba(26,20,48,.9),rgba(13,17,32,.92));border:1px solid var(--line);border-radius:var(--radius);padding:12px;display:flex;gap:12px;align-items:center;box-shadow:0 0 28px rgba(159,127,209,.14)}
+.card img{width:76px;height:76px;border-radius:14px;object-fit:cover;flex:none;border:1px solid rgba(196,161,236,.4)}
+.txt h3{margin:0;font-family:"Cinzel",Georgia,serif;font-weight:700;letter-spacing:.06em;font-size:1.05rem;background:linear-gradient(100deg,var(--gold-soft),var(--gold) 55%,#9f7fd1);-webkit-background-clip:text;background-clip:text;color:transparent}
+.txt p{margin:3px 0 8px;font-size:.88rem;color:var(--ivory);line-height:1.35}
+.go{display:inline-block;font-size:.8rem;letter-spacing:.08em;text-decoration:none;color:var(--gold-soft);border:1px solid rgba(196,161,236,.55);background:rgba(196,161,236,.10);border-radius:999px;padding:6px 14px}
+.go--off{opacity:.55}
+.st.portrait .card{flex-direction:column;text-align:center;padding:14px 14px 18px}
+.st.portrait .card img{width:100%;height:auto;aspect-ratio:3/4;border-radius:14px;object-position:center top}
+.js .st .card{opacity:0;transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .st.L .card{transform:translateX(50px)} .js .st.R .card{transform:translateX(-50px)}
+.js .st.on .card{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .st .card{opacity:1!important;transform:none!important;transition:none}.node{transition:none}}
+
+.st.textonly .card{padding:18px 16px}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -601,21 +640,24 @@ html[lang="zh-Hans"] .team__title { font-family: inherit; font-style: normal; fo
       <h1 class="mark" lang="en" dir="ltr">elghaly</h1>
       <p class="signs" aria-hidden="true">✝️ 🧿 🪬</p>
       <hr class="rule">
+      <p class="intro">Founder-led software engineering — developer tools, infrastructure, and Faithful Servant systems.</p>
     </section>
 
-    <section class="heard wrap" aria-labelledby="heard-title">
-      <h2 id="heard-title" class="heard__title">Have you heard about us?</h2>
-      <ol class="tiles" aria-label="Our projects">
-        <li><a class="tile tile--picture" href="https://35.elghaly.dev/" rel="noopener noreferrer" aria-label="35"><img class="tile__photo" src="/assets/emblem-35-480.webp" width="480" height="480" alt="35" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://iris-35.elghaly.dev/" rel="noopener noreferrer" aria-label="Iris"><img class="tile__photo" src="/assets/emblem-iris-480.webp" width="480" height="480" alt="Iris" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://plumb-35.elghaly.dev/" rel="noopener noreferrer" aria-label="Plumb"><img class="tile__photo" src="/assets/emblem-plumb-480.webp" width="480" height="480" alt="Plumb" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://quay-35.elghaly.dev/" rel="noopener noreferrer" aria-label="QUAY"><img class="tile__photo" src="/assets/emblem-quay-480.webp" width="480" height="480" alt="QUAY" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://stale.elghaly.dev/" rel="noopener noreferrer" aria-label="Stale"><img class="tile__photo" src="/assets/emblem-stale-480.webp" width="480" height="480" alt="Stale" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://glance.elghaly.dev/" rel="noopener noreferrer" aria-label="Glance"><img class="tile__photo" src="/assets/emblem-glance-480.webp" width="480" height="480" alt="Glance" loading="lazy" decoding="async"></a></li>
-        <li><a class="tile tile--picture" href="https://stocklana.elghaly.dev/" rel="noopener noreferrer" aria-label="Stocklana"><img class="tile__photo" src="/assets/emblem-stocklana-480.webp" width="480" height="480" alt="Stocklana" loading="lazy" decoding="async"></a></li>
-        <li><div class="tile tile--picture tile--locked" role="img" aria-label="RA, locked" aria-disabled="true"><img class="tile__photo" src="/assets/emblem-ra-480.webp?v=3" width="480" height="480" alt="RA" loading="lazy" decoding="async"></div></li>
-        <li><div class="tile tile--picture tile--locked" role="img" aria-label="SATAR, locked" aria-disabled="true"><img class="tile__photo" src="/assets/emblem-satar-480.webp?v=3" width="480" height="480" alt="SATAR" loading="lazy" decoding="async"></div></li>
-        <li><div class="tile tile--picture tile--locked" role="img" aria-label="Anubis, locked" aria-disabled="true"><img class="tile__photo" src="/assets/anubis-2-480.webp" width="480" height="480" alt="Anubis" loading="lazy" decoding="async"></div></li>
+    <section class="heard road wrap" aria-labelledby="heard-title">
+      <h2 id="heard-title" class="heard__title road__t">Have you heard about us?</h2>
+      <svg class="road__svg" aria-hidden="true"><path class="bed" id="bed"/><path class="line" id="line"/></svg>
+      <ol class="stops" id="stops" aria-label="Our projects">
+        <li class="st L"><i class="node"></i><div class="card"><img src="/assets/emblem-35-480.webp" width="480" height="480" alt="35" loading="lazy" decoding="async"><div class="txt"><h3>35</h3><span class="pill p-pv">Private</span><p>A first look at the 35 project.</p><a class="go" href="https://35.elghaly.dev/" rel="noopener noreferrer">Open 35</a></div></div></li>
+        <li class="st R"><i class="node"></i><div class="card"><img src="/assets/emblem-iris-480.webp" width="480" height="480" alt="Iris" loading="lazy" decoding="async"><div class="txt"><h3>Iris</h3><span class="pill p-on">Active</span><p>A clear view, made simple.</p><a class="go" href="https://iris-35.elghaly.dev/" rel="noopener noreferrer">Open Iris</a></div></div></li>
+        <li class="st L"><i class="node"></i><div class="card"><img src="/assets/emblem-plumb-480.webp" width="480" height="480" alt="Plumb" loading="lazy" decoding="async"><div class="txt"><h3>Plumb</h3><span class="pill p-on">Active</span><p>Solana desk insight.</p><a class="go" href="https://plumb-35.elghaly.dev/" rel="noopener noreferrer">Open Plumb</a></div></div></li>
+        <li class="st R"><i class="node"></i><div class="card"><img src="/assets/emblem-quay-480.webp" width="480" height="480" alt="Quay" loading="lazy" decoding="async"><div class="txt"><h3>Quay</h3><span class="pill p-on">Active</span><p>A storefront for our goods.</p><a class="go" href="https://quay-35.elghaly.dev/" rel="noopener noreferrer">Open Quay</a></div></div></li>
+        <li class="st L"><i class="node"></i><div class="card"><img src="/assets/emblem-stale-480.webp" width="480" height="480" alt="Stale" loading="lazy" decoding="async"><div class="txt"><h3>Stale</h3><span class="pill p-os">Open Source</span><p>Spot what has gone stale.</p><a class="go" href="https://stale.elghaly.dev/" rel="noopener noreferrer">Open Stale</a> <a class="go go--gh" href="https://github.com/elghaly-dev/stale" rel="noopener noreferrer">GitHub</a></div></div></li>
+        <li class="st R"><i class="node"></i><div class="card"><img src="/assets/emblem-glance-480.webp" width="480" height="480" alt="Glance" loading="lazy" decoding="async"><div class="txt"><h3>Glance</h3><span class="pill p-os">Open Source</span><p>Market view at a glance.</p><a class="go" href="https://glance.elghaly.dev/" rel="noopener noreferrer">Open Glance</a> <a class="go go--gh" href="https://github.com/elghaly-dev/glance" rel="noopener noreferrer">GitHub</a></div></div></li>
+        <li class="st L"><i class="node"></i><div class="card"><img src="/assets/emblem-stocklana-480.webp" width="480" height="480" alt="Stocklana" loading="lazy" decoding="async"><div class="txt"><h3>Stocklana</h3><span class="pill p-on">Active</span><p>Stock insight on Solana.</p><a class="go" href="https://stocklana.elghaly.dev/" rel="noopener noreferrer">Open Stocklana</a></div></div></li>
+        <li class="st R"><i class="node"></i><div class="card"><img src="/assets/emblem-ra-480.webp?v=3" width="480" height="480" alt="رع" loading="lazy" decoding="async"><div class="txt"><h3 dir="rtl" lang="ar">رع</h3><span class="pill p-soon">Coming soon</span><p>Watch the earth from above.</p><span class="go go--off" aria-disabled="true">Coming soon</span></div></div></li>
+        <li class="st L"><i class="node"></i><div class="card"><img src="/assets/emblem-satar-480.webp?v=3" width="480" height="480" alt="ستار" loading="lazy" decoding="async"><div class="txt"><h3 dir="rtl" lang="ar">ستار</h3><span class="pill p-soon">Coming soon</span><p>Private messaging and prayer companion.</p><span class="go go--off" aria-disabled="true">Coming soon</span></div></div></li>
+        <li class="st R portrait"><i class="node"></i><div class="card"><img src="/assets/anubis-2-480.webp" width="480" height="480" alt="Anubis" loading="lazy" decoding="async"><div class="txt"><h3>Anubis</h3><span class="pill p-soon">Coming soon</span><p>The guardian of the road.</p><span class="go go--off" aria-disabled="true">Coming soon</span></div></div></li>
+        <li class="st L textonly"><i class="node"></i><div class="card"><div class="txt"><h3><span lang="ar" dir="rtl">حتحور</span> · <span lang="hi">हाथोर</span></h3><p><span lang="ar" dir="rtl">المحطة الجاية</span> · <span lang="hi">अगला पड़ाव</span></p><span class="go go--off" aria-disabled="true"><span lang="ar" dir="rtl">قريباً</span> · <span lang="hi">जल्द आ रहा है</span></span></div></div></li>
       </ol>
       <div class="ask page-menu" data-page-menu data-label="Ask the Faithful Servant who we are" data-prompt="Read https://elghaly.dev/ and tell me who elghaly are."></div>
     </section>
@@ -658,5 +700,20 @@ html[lang="zh-Hans"] .team__title { font-family: inherit; font-style: normal; fo
     <p class="lic-badges"><a href="https://creativecommons.org/licenses/by/4.0/" rel="license">© elghaly · CC BY 4.0</a></p>
   </footer>
   <script src="/page-menu.js" defer></script>
+<script>
+document.documentElement.classList.add('js');
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const road=document.querySelector('.road'),stops=[...document.querySelectorAll('.st')],bed=document.getElementById('bed'),line=document.getElementById('line');let len=1;
+function draw(){const r=road.getBoundingClientRect();const pts=stops.map(s=>{const n=s.querySelector('.node').getBoundingClientRect();return[n.left+n.width/2-r.left,n.top+n.height/2-r.top]});
+let d=`M ${r.width/2} 0 L ${pts[0][0]} ${pts[0][1]-30}`;let p=[r.width/2,0];
+d=`M ${r.width/2} 40`;let prev=[r.width/2,40];
+pts.forEach(q=>{const my=(prev[1]+q[1])/2;d+=` C ${prev[0]} ${my}, ${q[0]} ${my}, ${q[0]} ${q[1]}`;prev=q});
+bed.setAttribute('d',d);line.setAttribute('d',d);len=line.getTotalLength();line.style.strokeDasharray=len;upd()}
+function upd(){const r=road.getBoundingClientRect();const y=innerHeight*.75-r.top;const nodes=stops.map(s=>s.querySelector('.node').getBoundingClientRect().top-r.top);
+let f=Math.max(0,Math.min(1,y/r.height));if(window.__force)f=1;line.style.strokeDashoffset=len*(1-f)}
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.25});
+stops.forEach(s=>io.observe(s));
+addEventListener('scroll',upd,{passive:true});addEventListener('resize',draw);addEventListener('load',draw);draw();
+</script>
 </body>
 </html>
