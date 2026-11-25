@@ -47,10 +47,18 @@
     ".pm-panel a:hover,.pm-panel button:hover,.pm-panel a:focus-visible,.pm-panel button:focus-visible" +
     "{background:rgba(127,127,127,.18);outline:none}" +
     ".pm-panel .pm-sub{font-size:.8rem;font-weight:400;opacity:.75}" +
-    ".pm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}";
+    ".pm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}" +
+    // «الغالي»: the old eye in a gold ring with a violet glow, the name in gold.
+    ".pm-eye{position:relative;flex:none;width:26px;height:26px;border-radius:50%;background:#04040a;" +
+    "box-shadow:0 0 0 1.5px #e2c27a,0 0 12px rgba(138,108,255,.55)}" +
+    ".pm-eye img{position:absolute;inset:1px;width:24px;height:24px;border-radius:50%;mix-blend-mode:screen}" +
+    ".pm-name{color:#e2c27a;font-weight:800;unicode-bidi:isolate}";
 
   // Drawn inline, so the button needs no image request and takes the text
   // colour of whatever page it sits on.
+  // The house assistant's name. A label that carries it gets the eye and the name in gold.
+  var NAME = "\u0627\u0644\u063a\u0627\u0644\u064a";
+  var EYE = '<span class="pm-eye" aria-hidden="true"><img src="/assets/alghali-eye.webp" alt="" width="24" height="24"></span>';
   var SPARK =
     '<svg class="pm-ico" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">' +
     '<path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9z"/>' +
@@ -440,7 +448,7 @@
 
   // The ⌄ menu: Copy. ChatGPT is the button itself.
   var ITEMS = [
-    { act: "copy", label: "Copy page", sub: "Markdown for Faithful Servant tools" }
+    { act: "copy", label: "Copy page", sub: "Markdown to paste into an assistant" }
   ];
 
   function build(slot) {
@@ -448,15 +456,25 @@
     var box = document.createElement("div");
     box.className = "pm";
     box.setAttribute("role", "group");
-    box.setAttribute("aria-label", "Ask the Faithful Servant about this page");
+    box.setAttribute("aria-label", "Ask " + NAME + " about this page");
 
     var main = document.createElement("a");
     main.className = "pm-main";
     main.href = chatgptUrl(q);
     main.target = "_blank";
     main.rel = "noopener noreferrer";
-    main.innerHTML = SPARK + "<span></span>";
-    main.lastChild.textContent = slot.getAttribute("data-label") || "Ask ChatGPT";
+    var text = slot.getAttribute("data-label") || "Ask ChatGPT";
+    var at = text.indexOf(NAME);
+    main.innerHTML = (at > -1 ? EYE : SPARK) + "<span></span>";
+    if (at > -1) {
+      var span = main.lastChild, nm = document.createElement("span");
+      nm.className = "pm-name"; nm.lang = "ar"; nm.textContent = NAME;
+      span.appendChild(document.createTextNode(text.slice(0, at)));
+      span.appendChild(nm);
+      span.appendChild(document.createTextNode(text.slice(at + NAME.length)));
+    } else {
+      main.lastChild.textContent = text;
+    }
 
     var details = document.createElement("details");
     details.className = "pm-more";
