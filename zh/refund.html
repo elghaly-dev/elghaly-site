@@ -79,16 +79,19 @@
         bar.id = 'elghaly-consent';
         bar.setAttribute('role', 'dialog');
         bar.setAttribute('aria-live', 'polite');
-        bar.setAttribute('aria-label', 'Cookie consent');
+        bar.setAttribute('aria-label', 'Cookie 同意');
+        // The banner text is in this page's language.
+        bar.setAttribute('lang', 'zh-Hans');
+        bar.setAttribute('dir', 'ltr');
         bar.innerHTML =
           '<div class="ec-inner">' +
-            '<p class="ec-text">We use Google Analytics cookies to understand site traffic. ' +
-            'Accept to allow analytics and ads-related storage, or Reject to keep them off. ' +
-            'See our <a href="/zh/privacy.html">隐私</a> and ' +
-            '<a href="https://business.safety.google/privacy/" rel="noopener noreferrer" target="_blank">Google Business Data Responsibility</a>.</p>' +
+            '<p class="ec-text">我们使用 Google Analytics Cookie 来了解网站流量。' +
+            '点击“接受”即允许分析和广告相关的存储，点击“拒绝”则保持关闭。' +
+            '请参阅<a href="/zh/privacy.html">隐私</a>和' +
+            '<a href="https://business.safety.google/privacy/" rel="noopener noreferrer" target="_blank">Google 企业数据责任</a>。</p>' +
             '<div class="ec-actions">' +
-              '<button type="button" class="ec-btn ec-btn--ghost" data-choice="denied">Reject</button>' +
-              '<button type="button" class="ec-btn ec-btn--primary" data-choice="granted">Accept</button>' +
+              '<button type="button" class="ec-btn ec-btn--ghost" data-choice="denied">拒绝</button>' +
+              '<button type="button" class="ec-btn ec-btn--primary" data-choice="granted">接受</button>' +
             '</div>' +
           '</div>';
         bar.addEventListener('click', function (ev) {
@@ -1897,7 +1900,7 @@ main.policy strong {
     <p><a href="/zh/">elghaly.dev</a> · <a href="/zh/about.html">关于</a> · <a href="/zh/refund.html">退款</a> · <a href="/zh/delivery.html">交付</a> · <a href="/zh/terms.html">条款</a> · <a href="/zh/privacy.html">隐私</a></p>
     <p class="footer__mail"><a href="mailto:support@elghaly.dev">support@elghaly.dev</a></p>
     <p class="footer__addr" style="font-size:.85rem;opacity:.8">Elghaly LLC, 548 Market St, San Francisco, CA 94104, USA</p>
-    <p class="footer__only"><span aria-hidden="true">🚨</span> 这是我们唯一的联系地址。我们从不通过私信、聊天软件或未经预约的电话联系你，也从不索要私钥或助记词。任何其他自称是我们的人都不是我们。</p>
+    <p class="footer__only"><span aria-hidden="true">🚨</span> 这是我们的联系地址。我们从不通过私信、聊天软件或未经预约的电话联系你，也从不索要私钥或助记词。任何其他自称是我们的人都不是我们。</p>
     <p>elghaly</p>
     <p class="lic-badges"><a href="https://creativecommons.org/licenses/by/4.0/" rel="license">© elghaly · CC BY 4.0</a></p>
   </footer>
