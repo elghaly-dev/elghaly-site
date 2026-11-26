@@ -1733,6 +1733,13 @@ main.policy {
 
 main.policy .section {
   text-align: center;
+  /* A flex item: without this it grows to fit the longest word. */
+  min-width: 0;
+}
+
+/* Long link text (a bare address) wraps in place of pushing the page wide. */
+main.policy .section a {
+  overflow-wrap: anywhere;
 }
 
 main.policy .section__label {
