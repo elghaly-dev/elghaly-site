@@ -79,16 +79,19 @@
         bar.id = 'elghaly-consent';
         bar.setAttribute('role', 'dialog');
         bar.setAttribute('aria-live', 'polite');
-        bar.setAttribute('aria-label', 'Cookie consent');
+        bar.setAttribute('aria-label', 'Согласие на cookie');
+        // The banner text is in this page's language.
+        bar.setAttribute('lang', 'ru');
+        bar.setAttribute('dir', 'ltr');
         bar.innerHTML =
           '<div class="ec-inner">' +
-            '<p class="ec-text">We use Google Analytics cookies to understand site traffic. ' +
-            'Accept to allow analytics and ads-related storage, or Reject to keep them off. ' +
-            'See our <a href="/ru/privacy.html">Конфиденциальность</a> and ' +
+            '<p class="ec-text">Мы используем файлы cookie Google Analytics, чтобы понимать посещаемость сайта. ' +
+            'Нажмите «Принять», чтобы разрешить хранение данных для аналитики и рекламы, или «Отклонить», чтобы оставить его выключенным. ' +
+            'Подробнее: <a href="/ru/privacy.html">Конфиденциальность</a> и ' +
             '<a href="https://business.safety.google/privacy/" rel="noopener noreferrer" target="_blank">Google Business Data Responsibility</a>.</p>' +
             '<div class="ec-actions">' +
-              '<button type="button" class="ec-btn ec-btn--ghost" data-choice="denied">Reject</button>' +
-              '<button type="button" class="ec-btn ec-btn--primary" data-choice="granted">Accept</button>' +
+              '<button type="button" class="ec-btn ec-btn--ghost" data-choice="denied">Отклонить</button>' +
+              '<button type="button" class="ec-btn ec-btn--primary" data-choice="granted">Принять</button>' +
             '</div>' +
           '</div>';
         bar.addEventListener('click', function (ev) {
